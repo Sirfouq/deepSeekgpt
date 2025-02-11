@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+ }
+ 
+ #root {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+ }
+ 
+ .dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+ }
+ 
+ .light-mode {
+  background-color: #ffffff; 
+  color: #000000;
+  min-height: 100vh;
+  width: 100%;
+ }
+ 
+ .app-container {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  overflow-x: hidden;
+ }
+ 
+ .list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+ }
+ 
+ .list-item {
+  width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  max-width: 800px; /* Limit width for better readability */
+}
+ 
+ .search-bar {
+  margin: 1em;
+  padding: 1em;
+  min-width: 40vw;
+  max-width: 50%;
+ }
+ 
+ .toggle-button-dark {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+ }
+ 
+ .toggle-button-light {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+ }
+ 
+ button:hover {
+  border-color: #646cff;
+ }
+ 
+ button:focus,
+ button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+ }
+ 
+ .loader {
+  width: 45px;
+  aspect-ratio: .75;
+  --c: no-repeat linear-gradient(#121111 0 0);
+  background: 
+    var(--c) 0%   50%,
+    var(--c) 50%  50%,
+    var(--c) 100% 50%;
+  background-size: 20% 50%;
+  animation: l6 1s infinite linear;
+ }
+ 
+ @keyframes l6 {
+  20% {background-position: 0% 0%  ,50% 50% ,100% 50% }
+  40% {background-position: 0% 100%,50% 0%  ,100% 50% }
+  60% {background-position: 0% 50% ,50% 100%,100% 0%  }
+  80% {background-position: 0% 50% ,50% 50% ,100% 100%}
+ }
