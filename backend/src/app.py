@@ -2,6 +2,7 @@ from flask import Flask,send_from_directory
 from flask_cors import CORS
 from markupsafe import escape
 import os
+import Chat
 
 
 app = Flask(__name__, static_folder= '../../frontend/dist/',static_url_path='')

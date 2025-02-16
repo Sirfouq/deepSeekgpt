@@ -13,7 +13,7 @@ class Chat :
         self.messages = []
 
 
-    def send_message(self, message)->None:
+    def send_message(self, message)->str:
          self.messages.append({"role": "user", "content": message})
          
          response = Chat.client.chat.completions.create(
@@ -22,7 +22,9 @@ class Chat :
             stream=False
         )
          
-         assistant_report = response.choices
+         assistant_report = response.choices[0].message.content
+         self.messages.append({"role": "assistant", "content": assistant_report})
+         return assistant_report
          
          
     
