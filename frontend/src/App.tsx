@@ -3,7 +3,8 @@ import './App.css';
 import Search from './Search';
 import { useTheme } from './ThemeContext';
 import Comment from './class/Comment';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<Comment[]>([]);
@@ -35,9 +36,9 @@ function App() {
 
   return (
     <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <ToggleThemeButton />
       <div className="app-container">
         <Search onSearch={setSearchTerm} />
-        <ToggleThemeButton />
         <div className='list-container'>
           {isLoading ? (
             <div className='loader'></div>
@@ -59,7 +60,9 @@ const ToggleThemeButton = () => {
   const className = 'toggle-button-' + (isDarkMode ? 'dark' : 'light');
 
   return (
-    <button className={className} onClick={toggleTheme}>Toggle Theme</button>
+    <button className={className} onClick={toggleTheme}>
+      <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+    </button>
   );
 };
 

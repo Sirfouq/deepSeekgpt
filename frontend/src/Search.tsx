@@ -1,17 +1,17 @@
 import './App.css'
 
 
-interface SearchProps{
-    onSearch:(msg:string)=>void
+interface SearchProps {
+  onSearch: (msg: string) => void
 }
 
-const Search = ({onSearch}:SearchProps) => {
+const Search = ({ onSearch }: SearchProps) => {
   return (
-    <input 
-        className='search-bar'
-        type='text'
-        onChange={(e)=>onSearch(e.target.value)}  
-        >
+    <input
+      className='input-bar'
+      type='text'
+      onChange={(e) => onSearch(e.target.value)}
+    >
     </input>
   )
 }
