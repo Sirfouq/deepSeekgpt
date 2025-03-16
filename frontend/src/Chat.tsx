@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTheme } from './ThemeContext';
 
 
 const Chat = () => {
@@ -6,10 +7,14 @@ const Chat = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('')
     const [responseMessage, setResponseMessage] = useState('')
+    const { isDarkMode } = useTheme();
 
+
+
+    console.log(isDarkMode)
     const sendMessage = async (msg: string) => {
         setIsLoading(true)
-        console.log(msg)
+
         const response = await fetch('http://127.0.0.1:5000/api/chat/', {
             method: 'POST',
             headers: {
@@ -29,7 +34,7 @@ const Chat = () => {
 
 
     return (
-        <div>
+        <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
             <input
                 className='input-bar'
                 type="text"
