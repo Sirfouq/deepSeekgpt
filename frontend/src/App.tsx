@@ -4,7 +4,10 @@ import Search from './Search';
 import { useTheme } from './ThemeContext';
 import Comment from './class/Comment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faComputer } from '@fortawesome/free-solid-svg-icons';
+import { Link, NavLink } from 'react-router-dom';
+import { Button } from './components/ui/button';
+
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<Comment[]>([]);
@@ -25,18 +28,20 @@ function App() {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   const rootElement = document.getElementById('root');
-  //   if (rootElement) {
-  //     rootElement.className = isDarkMode ? 'dark-mode' : 'light-mode';
-  //   }
-  // }, [isDarkMode]);
+
 
   const filteredItems = data.filter(item => item.body.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
-      <ToggleThemeButton />
+      <div className='inner-div'>
+        <ToggleThemeButton />
+        <Link to={{
+          pathname: "/chat"
+        }}>
+          <Button>Chat</Button>
+        </Link>
+      </div>
       <div className="app-container">
         <Search onSearch={setSearchTerm} />
         <div className='list-container'>
@@ -67,3 +72,4 @@ const ToggleThemeButton = () => {
 };
 
 export default App;
+

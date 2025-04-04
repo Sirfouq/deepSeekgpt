@@ -112,6 +112,23 @@ body {
   background-size: 20% 50%;
   animation: l6 1s infinite linear;
  }
+
+ .inner-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+ }
+
+ .nav-div{
+  color: #ffffff;
+  padding: 0.5em;
+  border: #646cff 1px solid;
+  background-color: #646cff;
+  border-radius: 10px;
+  
+ }
  
  @keyframes l6 {
   20% {background-position: 0% 0%  ,50% 50% ,100% 50% }

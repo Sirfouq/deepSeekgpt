@@ -12,6 +12,7 @@ const Chat = () => {
 
 
     console.log(isDarkMode)
+    const className = 'toggle-button-' + (isDarkMode ? 'dark' : 'light');
     const sendMessage = async (msg: string) => {
         setIsLoading(true)
 
@@ -43,7 +44,7 @@ const Chat = () => {
                 onChange={(e) => setMessage(e.target.value)}
             >
             </input>
-            <button onClick={() => sendMessage(message)}>
+            <button className={className} onClick={() => sendMessage(message)}>
                 Send
             </button>
             {isLoading && <div className='loader'></div>}
