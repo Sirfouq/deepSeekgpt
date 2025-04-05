@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useTheme } from './ThemeContext';
+import { Button } from './components/ui/button';
+
 
 
 const Chat = () => {
@@ -8,11 +10,15 @@ const Chat = () => {
     const [message, setMessage] = useState('')
     const [responseMessage, setResponseMessage] = useState('')
     const { isDarkMode } = useTheme();
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
+
+    useEffect(() => {
+        inputRef.current?.focus()
+    }, []);
 
 
     console.log(isDarkMode)
-    const className = 'toggle-button-' + (isDarkMode ? 'dark' : 'light');
     const sendMessage = async (msg: string) => {
         setIsLoading(true)
 
@@ -34,9 +40,12 @@ const Chat = () => {
 
 
 
+
+
     return (
         <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
             <input
+                ref={inputRef}
                 className='input-bar'
                 type="text"
                 placeholder='Type your question here...'
@@ -44,11 +53,13 @@ const Chat = () => {
                 onChange={(e) => setMessage(e.target.value)}
             >
             </input>
-            <button className={className} onClick={() => sendMessage(message)}>
+            <Button onClick={() => sendMessage(message)}>
                 Send
-            </button>
-            {isLoading && <div className='loader'></div>}
-            {responseMessage && <p>{responseMessage}</p>}
+            </Button>
+            <p className='m-10 flex flex-wrap'>
+                {isLoading && <div className='loader'></div>}
+                {responseMessage && <p>{responseMessage}</p>}
+            </p>
         </div>
     )
 }

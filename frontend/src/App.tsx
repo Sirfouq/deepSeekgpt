@@ -39,7 +39,7 @@ function App() {
         <Link to={{
           pathname: "/chat"
         }}>
-          <Button>Chat</Button>
+          <Button className='!bg-purple-500 hover:!bg-purple-600 text-white'>Chat</Button>
         </Link>
       </div>
       <div className="app-container">
@@ -65,7 +65,8 @@ const ToggleThemeButton = () => {
   const className = 'toggle-button-' + (isDarkMode ? 'dark' : 'light');
 
   return (
-    <button className={className} onClick={toggleTheme}>
+    <button className={`${className} h-8 w-14 flex items-center justify-center`}
+      onClick={toggleTheme}>
       <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
     </button>
   );
