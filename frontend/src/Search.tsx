@@ -17,6 +17,7 @@ const Search = ({ onSearch }: SearchProps) => {
     <input
       ref={inputRef}
       className='input-bar'
+      placeholder='Search comments...'
       type='text'
       onChange={(e) => onSearch(e.target.value)}
     >
